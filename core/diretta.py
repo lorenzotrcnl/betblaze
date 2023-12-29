@@ -21,6 +21,7 @@ class Diretta:
         chrome_options.add_argument("--disable-gpu")
         chrome_options.add_argument("--disable-images")
         chrome_options.add_argument("--log-level=3")
+        chrome_options.binary_location = "/usr/bin/google-chrome"
         self.driver = webdriver.Chrome(options=chrome_options)
         self.wait = WebDriverWait(self.driver, 5)
 
