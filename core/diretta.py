@@ -23,7 +23,7 @@ class Diretta:
         chrome_options.add_argument("--log-level=3")
         chrome_options.binary_location = "/usr/bin/google-chrome"
         self.driver = webdriver.Chrome(options=chrome_options)
-        self.wait = WebDriverWait(self.driver, 5)
+        self.wait = WebDriverWait(self.driver, 10)
 
 
     def get_schedule(self, url="https://www.diretta.it/", days=3, waiting_seconds=5):
