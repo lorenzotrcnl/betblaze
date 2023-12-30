@@ -5,14 +5,14 @@ import os
 import pandas as pd
 from datetime import datetime, timedelta
 
-inputPATH_ = "./data/ts"
-outputPATH_ = f"{input}/odds_{(datetime.now()-timedelta(days=1)).strftime('%D')}.csv"
+input_path = "./data/ts"
+output_path = f"{input_path}/odds_{(datetime.now()-timedelta(days=1)).strftime('%d-%m')}.csv"
 
-frames = [pd.read_csv(os.path.join(inputPATH_, file)) for file in os.listdir(inputPATH_) if file.endswith(".csv")]
+frames = [pd.read_csv(os.path.join(input_path, file)) and os.remove(os.path.join(input_path, file)) for file in os.listdir(input_path) if file.endswith(".csv")]
 
-if not frames: 
-    print(f"{inputPATH_} empty!")
+if not frames:
+    print(f"{input_path} empty!")
 else:
     result = pd.concat(frames, ignore_index=True)
-    result.to_csv(outputPATH_, index=False)
-    print("files aggregated!")
+    result.to_csv(output_path, index=False)
+    print("Files aggregated and individual files deleted!")
