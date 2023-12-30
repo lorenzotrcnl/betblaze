@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/Users/lorenzotarcinale/repo/betblaze')
+sys.path.append('/home/larrys-linux/betblaze')
 
 import os
 import pandas as pd
