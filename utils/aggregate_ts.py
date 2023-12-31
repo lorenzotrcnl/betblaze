@@ -10,7 +10,7 @@ frames = []
 # Leggi i file e aggiungi i frame dati alla lista
 for file in os.listdir(inputPATH_):
     if file.endswith(".csv"):
-        file_path = os.path.join(inputPATH_, file)
+        file_path = f"{inputPATH_}/{file}"
         try:
             frame = pd.read_csv(file_path)
             frames.append(frame)
