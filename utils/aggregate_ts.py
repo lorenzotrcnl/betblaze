@@ -5,14 +5,27 @@ import os
 import pandas as pd
 from datetime import datetime, timedelta
 
-input_path = "./data/ts"
-output_path = f"{input_path}/odds_{(datetime.now()-timedelta(days=1)).strftime('%d-%m')}.csv"
+inputPATH_ = "./data/ts"
+outputPATH_ = f"{inputPATH_}/odds_{(datetime.now()-timedelta(days=1)).strftime('%d-%m')}.csv"
 
-frames = [pd.read_csv(os.path.join(input_path, file)) and os.remove(os.path.join(input_path, file)) for file in os.listdir(input_path) if file.endswith(".csv")]
+frames = []
+
+# Leggi i file e aggiungi i frame dati alla lista
+for file in os.listdir(inputPATH_):
+    if file.endswith(".csv"):
+        file_path = os.path.join(inputPATH_, file)
+        try:
+            frame = pd.read_csv(file_path)
+            frames.append(frame)
+            # Elimina il file dopo averlo letto ed aggiunto al frame
+            os.remove(file_path)
+        except pd.errors.EmptyDataError:
+            print(f"skipping empty file: {file}")
 
 if not frames:
-    print(f"{input_path} empty!")
+    print(f"{inputPATH_} empty!")
 else:
+    # Unisci tutti i frame dati in uno
     result = pd.concat(frames, ignore_index=True)
-    result.to_csv(output_path, index=False)
-    print("Files aggregated and individual files deleted!")
+    result.to_csv(outputPATH_, index=False)
+    print("files aggregated!")
