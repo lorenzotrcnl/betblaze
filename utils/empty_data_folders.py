@@ -1,11 +1,8 @@
-import sys
-sys.path.append('/home/larrys-linux/betblaze')
-
 import os
 import pandas as pd
 from datetime import datetime, timedelta
 
-inputPATH_ = ["./data/ts", "./data/closings"]
+inputPATH_ = ["/home/larrys-linux/betblaze/data/ts", "/home/larrys-linux/betblaze/data/closings"]
 
 frames = []
 

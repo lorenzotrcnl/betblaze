@@ -1,11 +1,8 @@
-import sys
-sys.path.append('/home/larrys-linux/betblaze')
-
 import os
 import pandas as pd
 from datetime import datetime, timedelta
 
-inputPATH_ = "./data/ts"
+inputPATH_ = "/home/larrys-linux/betblaze/data/ts"
 outputPATH_ = f"{inputPATH_}/odds_{(datetime.now()-timedelta(days=1)).strftime('%d-%m')}.csv"
 
 frames = []
