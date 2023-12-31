@@ -13,7 +13,7 @@ frames = []
 for folder in inputPATH_:
     for file in os.listdir(folder):
         if file.endswith(".csv"):
-            file_path = os.path.join(inputPATH_, file)
+            file_path = f"{folder}/{file}"
             os.remove(file_path)
     
     print(f"{folder} emptied!")
