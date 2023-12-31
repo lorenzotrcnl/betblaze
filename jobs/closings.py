@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/home/larrys-linux/betblaze')
+
 import pandas as pd
 from datetime import datetime
 from core.diretta import Diretta
