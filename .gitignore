@@ -1,0 +1,7 @@
+.DS_Store
+
+# data folder
+data
+
+# optional tests in notebooks
+*.ipynb
